@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .grid-areas-lg {
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: "nav nav" "aside main";
+  }
+  .grid-areas-sm {
+    grid-template-rows: 200px 1fr;
+    grid-template-areas: "nav" "main";
+  }
+  .main {
+    grid-area: main;
+  }
+  .nav {
+    grid-area: nav;
+  }
+  .aside {
+    grid-area: aside;
+  }
+}
