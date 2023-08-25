@@ -1,5 +1,9 @@
 const Navbar = () => {
-  return <div>Navbar</div>;
+  return (
+    <>
+      <img src="" alt="Logo" />
+    </>
+  );
 };
 
 export default Navbar;
