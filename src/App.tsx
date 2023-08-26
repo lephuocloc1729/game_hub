@@ -11,7 +11,10 @@ function App() {
         <Navbar />
       </nav>
       <aside className="hidden aside lg:block">
-        <GenreList onSelectGenre={setSelectedGenreId} />
+        <GenreList
+          onSelectGenre={setSelectedGenreId}
+          selectedGenreId={selectedGenreId}
+        />
       </aside>
       <section className="main">
         <GameGrid selectedGenre={selectedGenreId} />

@@ -4,7 +4,7 @@
 
 @layer utilities {
   .grid-areas-lg {
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 200px 1fr;
     grid-template-areas: "nav nav" "aside main";
   }
   .grid-areas-sm {

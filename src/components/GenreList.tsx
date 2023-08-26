@@ -4,8 +4,10 @@ import GenreItem from "./GenreItem";
 
 const GenreList = ({
   onSelectGenre,
+  selectedGenreId,
 }: {
   onSelectGenre: React.Dispatch<React.SetStateAction<number | null>>;
+  selectedGenreId: number | null;
 }) => {
   const {
     data: genresData,
@@ -17,7 +19,11 @@ const GenreList = ({
   return (
     <ul className="pl-3">
       {genresData?.results.map((genre) => (
-        <GenreItem genre={genre} onSelect={onSelectGenre} />
+        <GenreItem
+          genre={genre}
+          selectedGenreId={selectedGenreId}
+          onSelect={onSelectGenre}
+        />
       ))}
     </ul>
   );
