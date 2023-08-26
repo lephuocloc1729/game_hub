@@ -2,7 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import fetchGenres from "../services/fetchGenres";
 import GenreItem from "./GenreItem";
 
-const GenreList = () => {
+const GenreList = ({
+  onSelectGenre,
+}: {
+  onSelectGenre: React.Dispatch<React.SetStateAction<number | null>>;
+}) => {
   const {
     data: genresData,
     isSuccess,
@@ -13,7 +17,7 @@ const GenreList = () => {
   return (
     <ul className="pl-3">
       {genresData?.results.map((genre) => (
-        <GenreItem genre={genre} />
+        <GenreItem genre={genre} onSelect={onSelectGenre} />
       ))}
     </ul>
   );

@@ -19,7 +19,15 @@ interface FetchGameResponse {
   results: Game[];
 }
 
-const fetchGames = (): Promise<FetchGameResponse> =>
-  apiClient.get("/games").then((res) => res.data);
+const fetchGames = ({
+  queryKey,
+}: {
+  queryKey: [string, { selectedGenreId: number | null }];
+}): Promise<FetchGameResponse> => {
+  const [, { selectedGenreId }] = queryKey;
+  return apiClient
+    .get("/games", { params: { genres: selectedGenreId } })
+    .then((res) => res.data);
+};
 
 export default fetchGames;

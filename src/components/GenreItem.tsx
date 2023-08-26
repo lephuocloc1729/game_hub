@@ -1,5 +1,11 @@
 import { Genre } from "../services/fetchGenres";
-const GenreItem = ({ genre }: { genre: Genre }) => {
+const GenreItem = ({
+  genre,
+  onSelect,
+}: {
+  genre: Genre;
+  onSelect: React.Dispatch<React.SetStateAction<number | null>>;
+}) => {
   return (
     <li
       key={genre.id}
@@ -9,7 +15,9 @@ const GenreItem = ({ genre }: { genre: Genre }) => {
         src={genre.image_background}
         className="w-10 h-10 object-cover rounded-lg text-xl"
       />
-      <p>{genre.name}</p>
+      <button onClick={() => onSelect && onSelect(genre.id)}>
+        {genre.name}
+      </button>
     </li>
   );
 };

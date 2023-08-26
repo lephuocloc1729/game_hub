@@ -4,14 +4,14 @@ import fetchGames from "../services/fetchGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 
-const GameGrid = () => {
+const GameGrid = ({ selectedGenre }: { selectedGenre: number | null }) => {
   const {
     data: gamesData,
     isLoading,
     isSuccess,
     error,
     isError,
-  } = useQuery(["games"], fetchGames);
+  } = useQuery(["games", { selectedGenreId: selectedGenre }], fetchGames);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
