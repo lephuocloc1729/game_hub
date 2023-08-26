@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchGenres from "../services/fetchGenres";
+import GenreItem from "./GenreItem";
 
 const GenreList = () => {
   const {
@@ -10,11 +11,11 @@ const GenreList = () => {
     error,
   } = useQuery(["genres"], fetchGenres);
   return (
-    <div>
+    <ul className="pl-3">
       {genresData?.results.map((genre) => (
-        <p>{genre.name}</p>
+        <GenreItem genre={genre} />
       ))}
-    </div>
+    </ul>
   );
 };
 
