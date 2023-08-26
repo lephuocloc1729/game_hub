@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        "cs-clr": "rgba(0, 255, 0, 0.2)",
         "dark-blue": "rgb(15, 20, 27)",
       },
     },
