@@ -14,19 +14,19 @@ const GenreList = ({
     isSuccess,
     isLoading,
     isError,
-    error,
   } = useQuery(["genres"], fetchGenres);
-  return (
-    <ul className="pl-3">
-      {genresData?.results.map((genre) => (
-        <GenreItem
-          genre={genre}
-          selectedGenreId={selectedGenreId}
-          onSelect={onSelectGenre}
-        />
-      ))}
-    </ul>
-  );
+  if (isSuccess)
+    return (
+      <ul className="pl-3">
+        {genresData?.results.map((genre) => (
+          <GenreItem
+            genre={genre}
+            selectedGenreId={selectedGenreId}
+            onSelect={onSelectGenre}
+          />
+        ))}
+      </ul>
+    );
 };
 
 export default GenreList;
