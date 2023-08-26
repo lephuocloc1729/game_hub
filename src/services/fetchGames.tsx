@@ -1,4 +1,5 @@
 import apiClient from "./api-client";
+import { GameQuery } from "../App";
 
 export interface Platform {
   id: number;
@@ -22,15 +23,16 @@ interface FetchGameResponse {
 const fetchGames = ({
   queryKey,
 }: {
-  queryKey: [
-    string,
-    { selectedGenreId: number | null; selectedPlatformId: number | null }
-  ];
+  queryKey: [string, { selectedId: GameQuery }];
 }): Promise<FetchGameResponse> => {
-  const [, { selectedGenreId, selectedPlatformId }] = queryKey;
+  const [, { selectedId }] = queryKey;
   return apiClient
     .get("/games", {
-      params: { genres: selectedGenreId, platforms: selectedPlatformId },
+      params: {
+        genres: selectedId.genreId,
+        platforms: selectedId.platformId,
+        ordering: selectedId.ordering,
+      },
     })
     .then((res) => res.data);
 };

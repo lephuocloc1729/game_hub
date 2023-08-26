@@ -2,18 +2,16 @@ import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
+import SortSelector from "./components/SortSelector";
 import { useState } from "react";
 
 export interface GameQuery {
   genreId: number | null;
   platformId: number | null;
+  ordering: string | null;
 }
 
 function App() {
-  // const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
-  // const [selectedPlatformId, setSelectedPlatformId] = useState<number | null>(
-  //   null
-  // );
   const [gameQuery, setGameQuery] = useState({} as GameQuery);
 
   return (
@@ -30,11 +28,19 @@ function App() {
         />
       </aside>
       <section className="main">
-        <PlatformSelector
-          onSelect={(platformId: number | null) =>
-            setGameQuery({ ...gameQuery, platformId: platformId })
-          }
-        />
+        <div className="flex">
+          <PlatformSelector
+            onSelect={(platformId: number | null) =>
+              setGameQuery({ ...gameQuery, platformId: platformId })
+            }
+          />
+          <SortSelector
+            selectedOrder={gameQuery.ordering}
+            onSelectOrdering={(ordering: string | null) =>
+              setGameQuery({ ...gameQuery, ordering })
+            }
+          />
+        </div>
         <GameGrid gameQuery={gameQuery} />
       </section>
       <section></section>
