@@ -10,8 +10,9 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
+import { ReactNode } from "react";
 const PlatformIconList = ({ platforms }: { platforms: Platform[] }) => {
-  const iconMap: { [key: string]: HTMLBaseElement } = {
+  const iconMap: { [key: string]: ReactNode } = {
     pc: <FaWindows />,
     playstation: <FaPlaystation />,
     xbox: <FaXbox />,

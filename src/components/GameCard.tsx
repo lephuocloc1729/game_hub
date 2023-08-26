@@ -7,7 +7,7 @@ const GameCard = ({ game }: { game: Game }) => {
     <div className="rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 drop-shadow-xl">
       <img src={getCroppedImageUrl(game.background_image)} alt="" />
       <div className="py-4 px-6">
-        <h2 className="dark:bg-slate-700 dark:text-white text-3xl mb-4">
+        <h2 className="dark:bg-slate-700 dark:text-white text-2xl lg:text-3xl mb-4">
           {game.name}
         </h2>
         <div className="flex justify-between items-center">
