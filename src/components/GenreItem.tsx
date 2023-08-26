@@ -5,7 +5,7 @@ const GenreItem = ({
   selectedGenreId,
 }: {
   genre: Genre;
-  onSelect: React.Dispatch<React.SetStateAction<number | null>>;
+  onSelect: (genreId: number | null) => void;
   selectedGenreId: number | null;
 }) => {
   const style = `flex gap-3 justify-start items-center mb-6 cursor-pointer hover:text-xl hover:font-bold ${

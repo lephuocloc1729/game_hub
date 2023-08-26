@@ -1,4 +1,3 @@
-import { Platform } from "../services/fetchGames";
 import fetchPlatforms from "../services/fetchPlatforms";
 import PlatformSelectorSkeleton from "./PlatformSelectorSkeleton";
 import { useQuery } from "@tanstack/react-query";
@@ -6,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 const PlatformSelector = ({
   onSelect,
 }: {
-  onSelect: React.Dispatch<React.SetStateAction<number | null>>;
+  onSelect: (platformId: number) => void;
 }) => {
   const {
     data: platformsData,

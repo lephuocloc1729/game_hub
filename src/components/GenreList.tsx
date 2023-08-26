@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchGenres from "../services/fetchGenres";
 import GenreItem from "./GenreItem";
+import { GameQuery } from "../App";
 
 const GenreList = ({
   onSelectGenre,
   selectedGenreId,
 }: {
-  onSelectGenre: React.Dispatch<React.SetStateAction<number | null>>;
+  onSelectGenre: (genreId: number | null) => void;
   selectedGenreId: number | null;
 }) => {
   const {
@@ -15,6 +16,8 @@ const GenreList = ({
     isLoading,
     isError,
   } = useQuery(["genres"], fetchGenres);
+  if (isError) return;
+  if (isLoading) return;
   if (isSuccess)
     return (
       <ul className="pl-3">

@@ -1,16 +1,11 @@
 // import React, { useEffect, useState } from "react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import fetchGames from "../services/fetchGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import { GameQuery } from "../App";
 
-const GameGrid = ({
-  selectedGenre,
-  selectedPlatformId,
-}: {
-  selectedGenre: number | null;
-  selectedPlatformId: number | null;
-}) => {
+const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
   const {
     data: gamesData,
     isLoading,
@@ -21,8 +16,7 @@ const GameGrid = ({
     [
       "games",
       {
-        selectedGenreId: selectedGenre,
-        selectedPlatformId: selectedPlatformId,
+        selectedId: gameQuery,
       },
     ],
     fetchGames
