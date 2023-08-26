@@ -1,6 +1,7 @@
 // import React, { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchGames from "../services/fetchGames";
+import GameCard from "./GameCard";
 
 const GameGrid = () => {
   const {
@@ -12,12 +13,13 @@ const GameGrid = () => {
   } = useQuery(["games"], fetchGames);
 
   return (
-    <ul>
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
       {isLoading && <p>Loading...</p>}
-      {isSuccess &&
-        gamesData?.results?.map((game) => <li key={game.id}>{game.name}</li>)}
+
+      {isSuccess && gamesData?.results?.map((game) => <GameCard game={game} />)}
+
       {isError && <p>{error.message}</p>}
-    </ul>
+    </section>
   );
 };
 
