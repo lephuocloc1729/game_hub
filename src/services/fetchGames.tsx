@@ -22,11 +22,16 @@ interface FetchGameResponse {
 const fetchGames = ({
   queryKey,
 }: {
-  queryKey: [string, { selectedGenreId: number | null }];
+  queryKey: [
+    string,
+    { selectedGenreId: number | null; selectedPlatformId: number | null }
+  ];
 }): Promise<FetchGameResponse> => {
-  const [, { selectedGenreId }] = queryKey;
+  const [, { selectedGenreId, selectedPlatformId }] = queryKey;
   return apiClient
-    .get("/games", { params: { genres: selectedGenreId } })
+    .get("/games", {
+      params: { genres: selectedGenreId, platforms: selectedPlatformId },
+    })
     .then((res) => res.data);
 };
 
