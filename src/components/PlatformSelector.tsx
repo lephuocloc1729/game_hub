@@ -1,5 +1,4 @@
 import fetchPlatforms from "../services/fetchPlatforms";
-import PlatformSelectorSkeleton from "./PlatformSelectorSkeleton";
 import { useQuery } from "@tanstack/react-query";
 
 const PlatformSelector = ({
@@ -20,7 +19,7 @@ const PlatformSelector = ({
       <select
         name="platforms"
         id="platforms"
-        className="block appearance-none bg-slate-200 dark:text-white dark:bg-slate-600 dark:hover:bg-slate-500 text-gray-700 drop-shadow-xl py-2 px-4 pr-8 rounded leading-tight hover:bg-slate-300 focus:outline-none mb-4 ml-4 cursor-pointer"
+        className=" appearance-none bg-slate-200 dark:text-white dark:bg-slate-600 dark:hover:bg-slate-500 text-gray-700 drop-shadow-xl py-2 px-2 rounded leading-tight hover:bg-slate-300 focus:outline-none mb-4 ml-4 cursor-pointer block text-sm"
         onChange={(e) => onSelect(Number(e.target.value))}
       >
         <option selected>Platforms</option>

@@ -22,7 +22,7 @@ const SortSelector = ({
       name="platforms"
       id="platforms"
       key={"platforms"}
-      className="block appearance-none bg-slate-200 dark:text-white dark:bg-slate-600 dark:hover:bg-slate-500 text-gray-700 drop-shadow-xl py-2 px-4 pr-8 rounded leading-tight hover:bg-slate-300 focus:outline-none mb-4 ml-4 cursor-pointer"
+      className=" block appearance-none bg-slate-200 dark:text-white dark:bg-slate-600 dark:hover:bg-slate-500 text-gray-700 drop-shadow-xl py-2 px-2 rounded leading-tight hover:bg-slate-300 focus:outline-none mb-4 ml-4 cursor-pointer text-sm"
       onChange={(e) => onSelectOrdering(e.target.value)}
     >
       {orderingMap.map(
