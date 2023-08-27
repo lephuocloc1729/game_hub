@@ -20,15 +20,18 @@ const GenreList = ({
   if (isLoading) return;
   if (isSuccess)
     return (
-      <ul className="pl-3">
-        {genresData?.results.map((genre) => (
-          <GenreItem
-            genre={genre}
-            selectedGenreId={selectedGenreId}
-            onSelect={onSelectGenre}
-          />
-        ))}
-      </ul>
+      <>
+        <h2 className="text-2xl font-bold mb-6">Genres</h2>
+        <ul className="">
+          {genresData?.results.map((genre) => (
+            <GenreItem
+              genre={genre}
+              selectedGenreId={selectedGenreId}
+              onSelect={onSelectGenre}
+            />
+          ))}
+        </ul>
+      </>
     );
 };
 

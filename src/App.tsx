@@ -30,7 +30,7 @@ function App() {
           onSearch={(search) => setGameQuery({ ...gameQuery, search })}
         />
       </nav>
-      <aside className="hidden aside lg:block">
+      <aside className="hidden aside lg:block pl-4">
         <GenreList
           onSelectGenre={(genreId: number | null) =>
             setGameQuery({ ...gameQuery, genreId: genreId })
