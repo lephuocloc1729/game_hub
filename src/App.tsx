@@ -13,17 +13,21 @@ export interface GameQuery {
 }
 
 function App() {
-  const [gameQuery, setGameQuery] = useState({
+  const originGameQuery = {
     genreId: null,
     platformId: null,
     ordering: "",
     search: null,
-  } as GameQuery);
+  } as GameQuery;
+  const [gameQuery, setGameQuery] = useState(originGameQuery);
 
   return (
     <main className="grid grid-areas-sm text-slate-700 lg:grid-areas-lg dark:bg-dark-blue dark:text-white min-h-screen">
       <nav className="nav mb-5">
-        <Navbar onSearch={(search) => setGameQuery({ ...gameQuery, search })} />
+        <Navbar
+          onReturn={() => setGameQuery(originGameQuery)}
+          onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+        />
       </nav>
       <aside className="hidden aside lg:block">
         <GenreList
