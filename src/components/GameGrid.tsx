@@ -10,7 +10,6 @@ const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
     data: gamesData,
     isLoading,
     isSuccess,
-    error,
     isError,
   } = useQuery(
     [
@@ -30,7 +29,7 @@ const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-      {isLoading && skeletons.map((n) => <GameCardSkeleton />)}
+      {isLoading && skeletons.map(() => <GameCardSkeleton />)}
 
       {isSuccess &&
         gamesData?.results?.map((game) => (

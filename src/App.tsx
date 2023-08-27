@@ -27,7 +27,9 @@ function App() {
       <nav className="nav mb-5">
         <Navbar
           onReturn={() => setGameQuery(originGameQuery)}
-          onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+          onSearch={(search: string | null) =>
+            setGameQuery({ ...gameQuery, search })
+          }
         />
       </nav>
       <aside className="hidden aside lg:block pl-4">

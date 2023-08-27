@@ -1,10 +1,9 @@
 import SearchInput from "./SearchInput";
-import { OnSearch } from "./SearchInput";
 const Navbar = ({
   onSearch,
   onReturn,
 }: {
-  onSearch: (search: string | undefined) => void;
+  onSearch: (search: string | null) => void;
   onReturn: () => void;
 }) => {
   return (

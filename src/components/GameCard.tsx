@@ -2,7 +2,6 @@ import { Game } from "../services/fetchGames";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
-import Emoji from "./Emoji";
 const GameCard = ({ game }: { game: Game }) => {
   return (
     <div className="rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 drop-shadow-xl">
