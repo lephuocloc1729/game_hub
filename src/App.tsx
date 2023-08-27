@@ -3,6 +3,7 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
+import SearchHeading from "./components/SearchHeading";
 import { useState } from "react";
 
 export interface GameQuery {
@@ -38,6 +39,7 @@ function App() {
         />
       </aside>
       <section className="main">
+        <SearchHeading searchText={gameQuery.search} />
         <div className="flex">
           <PlatformSelector
             onSelect={(platformId: number | null) =>
