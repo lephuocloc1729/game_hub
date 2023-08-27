@@ -32,6 +32,7 @@ const fetchGames = ({
         genres: selectedId.genreId,
         platforms: selectedId.platformId,
         ordering: selectedId.ordering,
+        search: selectedId.search,
       },
     })
     .then((res) => res.data);
