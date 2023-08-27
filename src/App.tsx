@@ -43,6 +43,7 @@ function App() {
           <SortSelector
             selectedOrder={gameQuery.ordering}
             onSelectOrdering={(ordering: string | null) =>
+              ordering !== gameQuery.ordering &&
               setGameQuery({ ...gameQuery, ordering })
             }
           />
