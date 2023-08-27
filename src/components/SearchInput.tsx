@@ -27,14 +27,25 @@ const SearchInput = ({ onSearch }: OnSearch) => {
         inputElement.current && inputElement.current.blur();
       }}
     >
-      <input
-        ref={inputElement}
-        type="text"
-        className=" px-4 py-1 text-sm lg:w-1/2 lg:px-6 lg:py-2 lg:text-xl rounded-full bg-slate-700 text-slate-300 focus:text-slate-800 hover:bg-slate-100 focus:bg-slate-100 transition-all duration-300"
-        placeholder="Search games"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
+      <div className="w-1/2 flex justify-center relative items-center">
+        <input
+          ref={inputElement}
+          type="text"
+          className=" px-4 py-1 text-sm lg:w-full lg:px-6 lg:py-2 lg:text-xl rounded-full bg-slate-700 text-slate-300 focus:text-slate-800 hover:bg-slate-200 focus:bg-slate-200 transition-all duration-300 after:content-[alt]"
+          placeholder="Search games"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <div className="absolute gap-2 right-5 hidden lg:flex transition-all duration-300">
+          <div className="border-[1px] border-slate-200 text-slate-200 px-2 rounded-md text-sm">
+            Alt
+          </div>
+          <span className="text-slate-200">+</span>
+          <div className="border-[1px] border-slate-200 text-slate-200 px-2 rounded-md text-sm">
+            Enter
+          </div>
+        </div>
+      </div>
     </form>
   );
 };
