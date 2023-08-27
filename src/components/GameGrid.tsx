@@ -21,7 +21,12 @@ const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
     ],
     fetchGames
   );
-  const skeletons = [1, 2, 3, 4, 5, 6];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  if (isError)
+    return (
+      <p className="text-red text-2xl text-center">Please reload the page</p>
+    );
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
@@ -33,8 +38,6 @@ const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
             <GameCard game={game} />
           </div>
         ))}
-
-      {isError && <p>{error.message}</p>}
     </section>
   );
 };

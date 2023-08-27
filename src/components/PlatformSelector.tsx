@@ -14,7 +14,7 @@ const PlatformSelector = ({
     isLoading,
   } = useQuery(["platforms"], fetchPlatforms);
   if (isError) return null;
-  if (isLoading) return <PlatformSelectorSkeleton />;
+  if (isLoading) return;
   if (isSuccess)
     return (
       <select
