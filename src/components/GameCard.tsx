@@ -7,15 +7,15 @@ const GameCard = ({ game }: { game: Game }) => {
     <div className="rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 drop-shadow-xl">
       <img src={getCroppedImageUrl(game.background_image)} alt="" />
       <div className="py-4 px-6">
-        <h2 className="dark:bg-slate-700 dark:text-white text-2xl lg:text-3xl mb-4">
-          {game.name}
-        </h2>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mb-2">
           <PlatformIconList
             platforms={game.parent_platforms?.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic} />
         </div>
+        <h2 className="dark:bg-slate-700 dark:text-white text-2xl font-bold lg:text-3xl">
+          {game.name}
+        </h2>
       </div>
     </div>
   );
