@@ -14,10 +14,11 @@ const GameCard = ({ game }: { game: Game }) => {
           />
           <CriticScore score={game.metacritic} />
         </div>
-        <h2 className="incline dark:bg-slate-700 dark:text-white text-2xl font-bold lg:text-3xl">
-          {game.name}
-          {/* <Emoji rating={game.rating_top} /> */}
-        </h2>
+        <div className="dark:bg-slate-700 dark:text-white text-2xl font-bold lg:text-3xl">
+          <a href="#3" className="cursor-pointer inline">
+            {game.name}
+          </a>
+        </div>
       </div>
     </div>
   );
