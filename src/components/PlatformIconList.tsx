@@ -24,11 +24,11 @@ const PlatformIconList = ({ platforms }: { platforms: Platform[] }) => {
     web: <BsGlobe />,
   };
   return (
-    <div className="flex gap-4 text-slate-400 flex-wrap">
+    <ul className="flex gap-4 text-slate-400 flex-wrap">
       {platforms.map((p) => (
         <>{iconMap[p.slug]}</>
       ))}
-    </div>
+    </ul>
   );
 };
 

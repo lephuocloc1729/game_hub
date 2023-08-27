@@ -12,11 +12,15 @@ export interface GameQuery {
 }
 
 function App() {
-  const [gameQuery, setGameQuery] = useState({} as GameQuery);
+  const [gameQuery, setGameQuery] = useState({
+    genreId: null,
+    platformId: null,
+    ordering: "",
+  } as GameQuery);
 
   return (
     <main className="grid grid-areas-sm text-slate-700 lg:grid-areas-lg dark:bg-dark-blue dark:text-white min-h-screen">
-      <nav className="nav">
+      <nav className="nav mb-5">
         <Navbar />
       </nav>
       <aside className="hidden aside lg:block">
