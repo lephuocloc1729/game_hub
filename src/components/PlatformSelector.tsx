@@ -1,17 +1,11 @@
-import fetchPlatforms from "../services/fetchPlatforms";
-import { useQuery } from "@tanstack/react-query";
+import usePlatforms from "../hooks/usePlatforms";
 
 const PlatformSelector = ({
   onSelect,
 }: {
   onSelect: (platformId: number) => void;
 }) => {
-  const {
-    data: platformsData,
-    isSuccess,
-    isError,
-    isLoading,
-  } = useQuery(["platforms"], fetchPlatforms);
+  const { data: platformsData, isSuccess, isError, isLoading } = usePlatforms();
   if (isError) return null;
   if (isLoading) return;
   if (isSuccess)
