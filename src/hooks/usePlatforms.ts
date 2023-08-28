@@ -11,7 +11,7 @@ const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 const usePlatforms = () => {
   return useQuery(["platforms"], apiClient.getAll, {
     staleTime: 24 * 60 * 60 * 1000,
-    initialData: { count: platforms.length, results: platforms },
+    initialData: { count: platforms.length, next: null, results: platforms },
   });
 };
 
