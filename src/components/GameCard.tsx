@@ -1,4 +1,5 @@
-import { Game } from "../services/fetchGames";
+import { Platform } from "../hooks/usePlatforms";
+import { Game } from "../hooks/useGames";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
@@ -9,7 +10,9 @@ const GameCard = ({ game }: { game: Game }) => {
       <div className="py-4 px-6">
         <div className="flex justify-between items-center mb-2">
           <PlatformIconList
-            platforms={game.parent_platforms?.map((p) => p.platform)}
+            platforms={game.parent_platforms?.map(
+              (p: { platform: Platform }) => p.platform
+            )}
           />
           <CriticScore score={game.metacritic} />
         </div>

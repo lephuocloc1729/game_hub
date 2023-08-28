@@ -1,9 +1,8 @@
 // import React, { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import fetchGames from "../services/fetchGames";
+import { GameQuery } from "../App";
+import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
-import { GameQuery } from "../App";
 
 const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
   const {
@@ -11,15 +10,7 @@ const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
     isLoading,
     isSuccess,
     isError,
-  } = useQuery(
-    [
-      "games",
-      {
-        selectedId: gameQuery,
-      },
-    ],
-    fetchGames
-  );
+  } = useGames({ gameQuery });
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   if (isError)

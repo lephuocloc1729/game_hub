@@ -1,4 +1,4 @@
-import { Platform } from "../services/fetchGames";
+import { Platform } from "../hooks/usePlatforms";
 import {
   FaWindows,
   FaPlaystation,

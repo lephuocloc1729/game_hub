@@ -1,4 +1,4 @@
-import { Genre } from "../services/fetchGenres";
+import { Genre } from "../hooks/useGenres";
 const GenreItem = ({
   genre,
   onSelect,
