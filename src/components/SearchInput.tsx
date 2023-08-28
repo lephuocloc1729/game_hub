@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-export interface OnSearch {
-  onSearch: (search: string | null) => void;
-}
-const SearchInput = ({ onSearch }: OnSearch) => {
+import useGameQuery from "../GameQueryStore";
+
+const SearchInput = () => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState<string | null>("");
+  const setSearch = useGameQuery((s) => s.setSearch);
 
   useEffect(() => {
     const handleSearchShortcut = (e: KeyboardEvent) => {
@@ -22,7 +22,7 @@ const SearchInput = ({ onSearch }: OnSearch) => {
       className="w-full flex justify-center"
       onSubmit={(e) => {
         e.preventDefault();
-        onSearch(searchText);
+        if (searchText) setSearch(searchText);
         setSearchText("");
         inputElement.current && inputElement.current.blur();
       }}

@@ -1,4 +1,7 @@
-const SearchHeading = ({ searchText }: { searchText: string | null }) => {
+import useGameQuery from "../GameQueryStore";
+
+const SearchHeading = () => {
+  const searchText = useGameQuery((s) => s.gameQuery.search);
   return (
     searchText && (
       <h2 className="text-3xl ml-4 mb-2">

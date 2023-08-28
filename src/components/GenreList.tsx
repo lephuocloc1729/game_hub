@@ -1,13 +1,7 @@
 import useGenres from "../hooks/useGenres";
 import GenreItem from "./GenreItem";
 
-const GenreList = ({
-  onSelectGenre,
-  selectedGenreId,
-}: {
-  onSelectGenre: (genreId: number | null) => void;
-  selectedGenreId: number | null;
-}) => {
+const GenreList = () => {
   const { data: genresData, isSuccess, isLoading, isError } = useGenres();
   if (isError) return;
   if (isLoading) return;
@@ -17,11 +11,7 @@ const GenreList = ({
         <h2 className="text-2xl font-bold mb-6">Genres</h2>
         <ul className="">
           {genresData?.results.map((genre) => (
-            <GenreItem
-              genre={genre}
-              selectedGenreId={selectedGenreId}
-              onSelect={onSelectGenre}
-            />
+            <GenreItem genre={genre} />
           ))}
         </ul>
       </>

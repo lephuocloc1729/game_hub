@@ -1,10 +1,8 @@
+import useGameQuery from "../GameQueryStore";
 import usePlatforms from "../hooks/usePlatforms";
 
-const PlatformSelector = ({
-  onSelect,
-}: {
-  onSelect: (platformId: number) => void;
-}) => {
+const PlatformSelector = () => {
+  const setPlatformId = useGameQuery((s) => s.setPlatformId);
   const { data: platformsData, isSuccess, isError, isLoading } = usePlatforms();
   if (isError) return null;
   if (isLoading) return;
@@ -14,7 +12,7 @@ const PlatformSelector = ({
         name="platforms"
         id="platforms"
         className=" appearance-none bg-slate-200 dark:text-white dark:bg-slate-600 dark:hover:bg-slate-500 text-gray-700 drop-shadow-xl py-2 px-2 rounded leading-tight hover:bg-slate-300 focus:outline-none mb-4 ml-4 cursor-pointer block text-sm"
-        onChange={(e) => onSelect(Number(e.target.value))}
+        onChange={(e) => setPlatformId(Number(e.target.value))}
       >
         <option selected>Platforms</option>
 

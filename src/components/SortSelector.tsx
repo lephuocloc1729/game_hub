@@ -1,14 +1,14 @@
-const SortSelector = ({
-  selectedOrder,
-  onSelectOrdering,
-}: {
-  selectedOrder: string | null;
-  onSelectOrdering: (ordering: string | null) => void;
-}) => {
-  interface Ordering {
-    value: string;
-    name: string;
-  }
+import useGameQuery from "../GameQueryStore";
+
+interface Ordering {
+  value: string;
+  name: string;
+}
+
+const SortSelector = () => {
+  const setSortOrder = useGameQuery((s) => s.setSortOrder);
+
+  const selectedOrder = useGameQuery((s) => s.gameQuery.ordering);
   const orderingMap: Ordering[] = [
     { value: "", name: "Relevance" },
     { value: "name", name: "Name" },
@@ -23,7 +23,7 @@ const SortSelector = ({
       id="platforms"
       key={"platforms"}
       className=" block appearance-none bg-slate-200 dark:text-white dark:bg-slate-600 dark:hover:bg-slate-500 text-gray-700 drop-shadow-xl py-2 px-2 rounded leading-tight hover:bg-slate-300 focus:outline-none mb-4 ml-4 cursor-pointer text-sm"
-      onChange={(e) => onSelectOrdering(e.target.value)}
+      onChange={(e) => setSortOrder(e.target.value)}
     >
       {orderingMap.map(
         (order) =>
