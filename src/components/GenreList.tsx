@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import fetchGenres from "../services/fetchGenres";
+import useGenres from "../hooks/useGenres";
 import GenreItem from "./GenreItem";
 
 const GenreList = ({
@@ -9,12 +8,7 @@ const GenreList = ({
   onSelectGenre: (genreId: number | null) => void;
   selectedGenreId: number | null;
 }) => {
-  const {
-    data: genresData,
-    isSuccess,
-    isLoading,
-    isError,
-  } = useQuery(["genres"], fetchGenres);
+  const { data: genresData, isSuccess, isLoading, isError } = useGenres();
   if (isError) return;
   if (isLoading) return;
   if (isSuccess)
