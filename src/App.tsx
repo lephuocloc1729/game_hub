@@ -20,7 +20,7 @@ function App() {
     ordering: "",
     search: null,
   } as GameQuery;
-  const [gameQuery, setGameQuery] = useState(originGameQuery);
+  const [gameQuery, setGameQuery] = useState<GameQuery>(originGameQuery);
 
   return (
     <main className="grid grid-areas-sm text-slate-700 lg:grid-areas-lg dark:bg-dark-blue dark:text-white min-h-screen">

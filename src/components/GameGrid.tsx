@@ -10,7 +10,7 @@ const GameGrid = ({ gameQuery }: { gameQuery: GameQuery }) => {
     isLoading,
     isSuccess,
     isError,
-  } = useGames({ gameQuery });
+  } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   if (isError)
