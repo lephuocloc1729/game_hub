@@ -1,5 +1,5 @@
-import { Platform } from "../entities/Platform";
-import { Game } from "../entities/Game";
+import Platform from "../entities/Platform";
+import Game from "../entities/Game";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";

@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useGameQuery from "../GameQueryStore";
 
 const SearchInput = () => {
   const inputElement = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState<string | null>("");
   const setSearch = useGameQuery((s) => s.setSearch);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleSearchShortcut = (e: KeyboardEvent) => {
@@ -25,6 +27,7 @@ const SearchInput = () => {
         if (searchText) setSearch(searchText);
         setSearchText("");
         inputElement.current && inputElement.current.blur();
+        navigate("/");
       }}
     >
       <div className="w-1/2 flex justify-center relative items-center">
