@@ -1,5 +1,5 @@
 import useGameQuery from "../GameQueryStore";
-import { Genre } from "../hooks/useGenres";
+import { Genre } from "../entities/Genre";
 const GenreItem = ({ genre }: { genre: Genre }) => {
   const setGenreId = useGameQuery((s) => s.setGenreId);
   const selectedGenreId = useGameQuery((s) => s.gameQuery.genreId);

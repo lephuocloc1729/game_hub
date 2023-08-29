@@ -1,5 +1,5 @@
-import { Platform } from "../hooks/usePlatforms";
-import { Game } from "../hooks/useGames";
+import { Platform } from "../entities/Platform";
+import { Game } from "../entities/Game";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
