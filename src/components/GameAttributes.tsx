@@ -4,7 +4,7 @@ import DefinitionItem from "./DefinitionItem";
 
 const GameAttributes = ({ game }: { game: Game }) => {
   return (
-    <dl className="grid grid-cols-2 gap-4">
+    <dl className="grid grid-cols-2 gap-4 mb-6">
       <DefinitionItem term="Platforms">
         {game.parent_platforms.map(({ platform }) => (
           <p>{platform.name}</p>
