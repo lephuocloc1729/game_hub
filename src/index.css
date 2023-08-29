@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer utilities {
+  .min-h-section {
+    min-height: calc(100vh - 80px);
+  }
   .grid-areas-lg {
     grid-template-columns: 200px 1fr;
     grid-template-areas: "aside main";

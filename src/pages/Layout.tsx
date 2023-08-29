@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <section>
+      <section className="bg-dark-blue min-h-section text-white">
         <Outlet />
       </section>
     </>
