@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import GameTrailer from "../entities/GameTrailer";
+import Trailer from "../entities/Trailer";
 import APIClient from "../services/api-client";
 
 const useGameTrailer = (slug: string) => {
-  const apiClient = new APIClient<GameTrailer>(`/games/${slug}/movies`);
-  return useQuery(["game_trailer", slug], apiClient.get);
+  const apiClient = new APIClient<Trailer>(`/games/${slug}/movies`);
+  return useQuery(["game_trailer", slug], apiClient.getAll);
 };
 
 export default useGameTrailer;
