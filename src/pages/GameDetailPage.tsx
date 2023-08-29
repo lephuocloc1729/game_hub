@@ -4,14 +4,18 @@ import GameAttributes from "../components/GameAttributes";
 import useGame from "../hooks/useGame";
 import GameTrailer from "../components/GameTrailer";
 import Screenshots from "../components/Screenshots";
+import GameDetailSkeleton from "../components/GameDetailSkeleton";
 const GameDetailPage = () => {
   const { slug } = useParams();
   const { data: game, isLoading, isSuccess, error } = useGame(slug);
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <GameDetailSkeleton />;
   if (error || !game) throw new Error();
   if (isSuccess)
     return (
-      <main className="px-4 pt-6 md:flex md:gap-6">
+      <main
+        className="px-4 pt-6 md:flex md:gap-6
+      "
+      >
         <section className="flex-1">
           <h2 className="text-4xl font-bold">{game.name}</h2>
           <ExpandableText>{game.description_raw}</ExpandableText>

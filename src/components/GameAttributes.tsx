@@ -3,8 +3,6 @@ import CriticScore from "./CriticScore";
 import DefinitionItem from "./DefinitionItem";
 
 const GameAttributes = ({ game }: { game: Game }) => {
-  console.log(game.genres);
-
   return (
     <dl className="grid grid-cols-2 gap-4 mb-6">
       {game.parent_platforms && (

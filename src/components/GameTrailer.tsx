@@ -1,9 +1,10 @@
 import useGameTrailer from "../hooks/useGameTrailer";
+import GameTrailerSkeleton from "./GameTrailerSkeleton";
 
 const GameTrailer = ({ slug }: { slug: string }) => {
   const { data, isLoading, error } = useGameTrailer(slug);
   console.log(data);
-  if (isLoading) return null;
+  if (isLoading) return <GameTrailerSkeleton />;
   if (error) throw new Error();
   const first = data?.results[0];
   if (!first) return null;
