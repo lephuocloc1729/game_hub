@@ -18,7 +18,10 @@ const GameCard = ({ game }: { game: Game }) => {
           <CriticScore score={game.metacritic} />
         </div>
         <div className="dark:bg-slate-700 dark:text-white text-2xl font-bold lg:text-3xl">
-          <Link to={`games/${game.id}`} className="">
+          <Link
+            to={`games/${game.slug}`}
+            className="transition-all duration-200 ease-in-out hover:text-slate-400"
+          >
             {game.name}
           </Link>
         </div>
