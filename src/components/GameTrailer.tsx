@@ -9,7 +9,7 @@ const GameTrailer = ({ slug }: { slug: string }) => {
   if (!first) return null;
   return first ? (
     <video
-      className="border-[0.02px] border-slate-500"
+      className="border-[0.02px] border-slate-500 mb-8"
       src={first.data[480]}
       poster={first.preview}
       controls
