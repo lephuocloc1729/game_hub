@@ -6,7 +6,7 @@ import PlatformIconList from "./PlatformIconList";
 import { Link } from "react-router-dom";
 const GameCard = ({ game }: { game: Game }) => {
   return (
-    <div className="rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 drop-shadow-xl">
+    <div className="rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700 hover:scale-105 hover:origin-center transition-all duration-200 ease-in-out drop-shadow-xl">
       <img src={getCroppedImageUrl(game.background_image)} alt="" />
       <div className="py-4 px-6">
         <div className="flex justify-between items-center mb-2">
